@@ -71,7 +71,7 @@
                 $exito = true;
             }
             $st = NULL;
-            $conexion = NULL;           
+           $conexion = NULL;           
             return $exito; 
         }
         function insert_alumno($cedula, $nombre, $direccion){
@@ -89,13 +89,13 @@
                 if($st->execute()){
                     $exito['exito'] = true;
                     $exito['activo'] = 1;
-                }
-                $st = NULL;
-                $conexion = NULL;   
+                }                
             }else{
                 $exito['exito'] = false;
                 $exito['activo'] = $alumno['activo'];
-            }        
+            }     
+            $st = NULL;
+            $conexion = NULL;     
             return $exito; 
         }
         function reactivar_alumnos($ced){

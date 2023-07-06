@@ -28,8 +28,8 @@ if (isset($_REQUEST['id'])) {
             break;
         case 'agregar_alumno':
             $cedula = test_input($_POST['cedula']);
-            $nombre = test_input($_POST['nombre']);
-            $direccion = test_input($_POST['direccion']);
+            $nombre = test_input(strtoupper($_POST['nombre']));
+            $direccion = test_input(strtoupper($_POST['direccion']));
             nuevoAlumno($cedula, $nombre, $direccion);
             break;
         case 'reactivar_alumno':

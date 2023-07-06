@@ -7,13 +7,15 @@
             require_once("../modelo/conectar.php");
             $this->conexion = Conectar::conexion();
         }
-        public function consulta_record($cedula){
-            $sql = 'SELECT cedula, codigo, periodo, nota FROM calificaciones WHERE cedula = ? order by codigo, periodo';
+        public function consulta_record($id_alumno){
+            $sql = 'SELECT cedula, codigo, periodo, nota FROM calificaciones WHERE id_alumno = ? order by codigo, periodo';
             $st = $this->conexion->prepare($sql);
-            $st->bindParam(1, $cedula);
+            $st->bindParam(1, $id_alumno);
             $st->execute();
-            $calificaciones = $st->fetch(PDO::FETCH_ASSOC);
-            return $calificaciones;
+            $record = $st->fetchAll(PDO::FETCH_ASSOC);
+            $st = NULL;
+            $conexion = NULL;
+            return $record;
         }
     }
 
