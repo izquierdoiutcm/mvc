@@ -7,6 +7,10 @@
             require_once("../modelo/conectar.php");
             $this->conexion = Conectar::conexion();
         }
+        public function __destruct(){
+            //echo "entro";
+            $this->conexion = NULL;
+        }
         public function consulta_record($id_alumno){
             $sql = 'SELECT c.id, c.cedula, c.codigo, a.nombre , c.periodo, c.nota
                     FROM calificaciones c
@@ -17,7 +21,6 @@
             $st->execute();
             $record = $st->fetchAll(PDO::FETCH_ASSOC);
             $st = NULL;
-            $conexion = NULL;
             return $record;
         }
     }
