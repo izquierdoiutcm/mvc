@@ -15,6 +15,6 @@
         $calificaciones = new Calificaciones();
         $record = $calificaciones->consulta_record($id_alumno);
 
-        include_once('../vista/record_view.php');
+        //header('location:../vista/record_view.php');
         return $record;
     }

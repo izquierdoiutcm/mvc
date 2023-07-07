@@ -8,7 +8,10 @@
             $this->conexion = Conectar::conexion();
         }
         public function consulta_record($id_alumno){
-            $sql = 'SELECT cedula, codigo, periodo, nota FROM calificaciones WHERE id_alumno = ? order by codigo, periodo';
+            $sql = 'SELECT c.id, c.cedula, c.codigo, a.nombre , c.periodo, c.nota
+                    FROM calificaciones c
+                    LEFT JOIN asignaturas a on a.codigo = c.codigo
+                    WHERE id_alumno = ? order by c.codigo, c.periodo';
             $st = $this->conexion->prepare($sql);
             $st->bindParam(1, $id_alumno);
             $st->execute();

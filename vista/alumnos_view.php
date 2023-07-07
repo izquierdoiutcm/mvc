@@ -51,7 +51,7 @@
                                 </form>
                             </td>
                             <td class='p-2 text-center'><a href='#' onclick="">
-                                    <form method="post" action="../controlador/calificaciones_controlador.php">
+                                    <form method="post" action="record_view.php">
                                         <input type='hidden' name='id' value='<?=$registro['id']?>'>
                                         <input type='hidden' name='accion' value='ver_record'>
                                         <input type='image' src='imagenes/record.png' value='Editar' title="Eliminar">
