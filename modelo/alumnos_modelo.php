@@ -13,7 +13,7 @@
             $sql = 'SELECT id, cedula, nombre FROM alumnos WHERE activo = 1';
             $st = $this->conexion->prepare($sql);
             $st->execute();
-            $alumnos = $st->fetchAll();           
+            $alumnos = $st->fetchAll();          
             $st = NULL;
             $conexion = NULL;
             return $alumnos;
@@ -55,9 +55,10 @@
             $st->bindParam(1, $nom);
             $st->bindParam(2, $dir);
             $st->bindParam(3, $id);
-            if($st->execute()){
+            $exito = $st->execute();
+            /*if($st->execute()){
                 $exito = true;
-            }
+            }*/
             $st = NULL;
             $conexion = NULL;           
            return $exito;

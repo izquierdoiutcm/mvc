@@ -1,8 +1,8 @@
 <?php
-    
+    include_once('validar.php');
     if(isset($_POST['submit'])){
-        $nom_usuario = $_POST['usuario'];
-        $clave = $_POST['clave'];
+        $nom_usuario = test_input($_POST['usuario']);
+        $clave = test_input($_POST['clave']);
         require_once('../modelo/usuario_modelo.php');
         $ingreso = new Usuario();
         $usuario = $ingreso->consultarUsuario($nom_usuario, $clave);

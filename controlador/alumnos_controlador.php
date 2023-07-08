@@ -1,5 +1,5 @@
 <?php
-include ('validar.php');
+include_once ('validar.php');
 if (isset($_REQUEST['id'])) {
     $id = test_input($_REQUEST['id']);
     $accion = test_input($_REQUEST['accion']);
